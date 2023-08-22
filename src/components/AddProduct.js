@@ -80,7 +80,7 @@ const AddProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5000/api/v1/products/create`, {
+            const response = await fetch(`https://pc-build.onrender.com/api/v1/products/create`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -90,6 +90,7 @@ const AddProduct = () => {
             // console.log(formData)
             if (response.ok) {
                 alert("Product added successfully!");
+
             }
         } catch (error) {
             console.error("Error creating product:", error);

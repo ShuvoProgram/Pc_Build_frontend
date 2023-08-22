@@ -15,7 +15,7 @@ const ReviewForm = ({ productId }) => {
         e.preventDefault();
 
         try {
-            const res = await fetch(`http://localhost:5000/api/v1/products/${productId?.data?._id}/add-review`, {
+            const res = await fetch(`https://pc-build.onrender.com/api/v1/products/${productId?.data?._id}/add-review`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

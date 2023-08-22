@@ -1,12 +1,11 @@
 import ChooseProduct from '@/components/ChooseProduct';
 import HomePageLayout from '@/layout/HomePageLayout';
-import { handlePcBuild } from '@/redux/features/pcBuilderSlice';
-import { useRouter } from 'next/router';
+import { Empty } from 'antd';
+
 import React from 'react';
-import { useDispatch } from 'react-redux';
+
 
 const Choose = ({ products }) => {
-    // console.log(products?.data)
 
     return (
         <HomePageLayout>
@@ -20,7 +19,7 @@ const Choose = ({ products }) => {
                                     product={product}
                                 />
                             )) : (
-                                <p>No products found for this category.</p>
+                                <Empty />
                             )
                         }
                     </div>

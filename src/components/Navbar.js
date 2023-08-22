@@ -11,10 +11,8 @@ import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 
 export default function Navbar() {
     const { data: session } = useSession();
-    const [user, loading] = useAuthState(auth);
-    const [authSignOut, error] = useSignOut(auth);
-    console.log("From home", user);
-    console.log(session)
+    const [user] = useAuthState(auth);
+    const [authSignOut] = useSignOut(auth);
     const [visible, setVisible] = useState(false);
 
     const showDrawer = () => {
@@ -79,16 +77,6 @@ export default function Navbar() {
         },
     ];
 
-    if (error) {
-        return (
-            <div>
-                <p>Error: {error.message}</p>
-            </div>
-        );
-    }
-    if (loading) {
-        return <p>Loading...</p>;
-    }
     return (
         <header className="text-white body-font">
             <div className="bg-blue-600 mx-auto flex flex-wrap p-3 md:flex-row flex-col items-center justify-between">

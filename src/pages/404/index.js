@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import style from './index.module.css';
+import Image from "next/image";
 
 
 const NotFoundPage = () => {
@@ -27,7 +28,7 @@ const NotFoundPage = () => {
             <div className={style.error}>404</div>
             <br /><br />
             <span className={style.info}>File not found</span>
-            <img src="http://images2.layoutsparks.com/1/160030/too-much-tv-static.gif" className={style.static} alt="404" />
+            <Image src="http://images2.layoutsparks.com/1/160030/too-much-tv-static.gif" width={100} height={100} className={style.static} alt="404" />
             <Link href="/">
                 <Button>Back To Home</Button>
             </Link>

@@ -46,7 +46,7 @@ ProductDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-    const res = await fetch(`${process.env.BASE_URL}/products`);
+    const res = await fetch(`${process.env.BASE_URL}/products`, { next: { revalidate: 60 } });
     const products = await res.json();
 
     const paths = products?.data?.map((product) => ({
@@ -56,9 +56,8 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-    const res = await fetch(`${process.env.BASE_URL}/products/${params.productId}`);
+    const res = await fetch(`${process.env.BASE_URL}/products/${params.productId}`, { next: { revalidate: 60 } });
     const product = await res.json();
-    // console.log(product)
     return {
         props: {
             product

@@ -1,5 +1,6 @@
 import ProductCard from '@/components/ProductCard';
 import ProductLayout from '@/layout/ProductLayout';
+import { Empty } from 'antd';
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -19,7 +20,7 @@ const CategoryName = ({ products }) => {
                             product={product}
                         />
                     )) : (
-                        <p>No products found for this category.</p>
+                        <Empty />
                     )}
                 </div>
             </div>
