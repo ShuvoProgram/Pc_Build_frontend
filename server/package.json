@@ -2,10 +2,12 @@
   "name": "pc-build-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "start": "node dist/server.js",
+    "start": "node src/server.js",
     "build": "tsc",
     "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "lint:fix": "eslint . --fix",
