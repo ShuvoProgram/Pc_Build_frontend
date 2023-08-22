@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
+import { message } from "antd";
 
 const ReviewForm = ({ productId }) => {
     const [rating, setRating] = useState(0);
@@ -27,7 +28,6 @@ const ReviewForm = ({ productId }) => {
                 setName("");
                 setReview("");
                 setRating("");
-                alert("Review added successfully!");
             } else {
                 console.error("Error adding review:", res.status);
                 alert("Error adding review.");
@@ -83,7 +83,9 @@ const ReviewForm = ({ productId }) => {
                         onChange={(e) => setReview(e.target.value)}
                         id="message" name="message" className="w-full bg-white border border-gray-300 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                 </div>
-                <button type="submit" className="w-full rounded-lg flex items-center justify-center bg-transparent hover:bg-blue-300 text-blue-300 hover:text-black border border-blue-300 hover:border-transparent py-2 px-6 focus:outline-none text-lg"><FiSend className='text-xl mr-2' />Post Review</button>
+                <button type="submit"
+                    onClick={() => message.success("Review successfully")}
+                    className="w-full rounded-lg flex items-center justify-center bg-transparent hover:bg-blue-300 text-blue-300 hover:text-black border border-blue-300 hover:border-transparent py-2 px-6 focus:outline-none text-lg"><FiSend className='text-xl mr-2' />Post Review</button>
             </form>
         </div>
     );

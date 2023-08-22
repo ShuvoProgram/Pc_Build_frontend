@@ -104,7 +104,7 @@ const AddProduct = () => {
                     <Upload
                         listType="picture"
                         accept="image/*"
-                        action={`http://localhost:3000/`}
+                        action={`https://pc-build-rosy.vercel.app/`}
                         showUploadList={{ showRemoveIcon: true }}
                         beforeUpload={(file) => {
                             return true;

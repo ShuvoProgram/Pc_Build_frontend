@@ -289,7 +289,7 @@ const PCBuilder = () => {
                         <button
                             disabled={!isDisabled()}
                             onClick={() => message.success("Build completed successfully")}
-                            className={`${isDisabled() ? "bg-green-600" : "bg-gray-900"} text-white px-4 py-1.5 my-5 font-medium rounded-sm`}
+                            className={`${isDisabled() ? "bg-blue-600" : "bg-gray-900"} text-white px-4 py-1.5 my-5 font-medium rounded-sm`}
                         >
                             Complete Build
                         </button>

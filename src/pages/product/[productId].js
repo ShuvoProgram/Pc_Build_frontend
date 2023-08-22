@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import ProductDescription from '@/components/ProductDescription';
 import ProductInfo from '@/components/ProductInfo';
 import ProductReview from '@/components/ProductReview';
@@ -5,6 +6,8 @@ import ReviewForm from '@/components/ReviewForm';
 import HomePageLayout from '@/layout/HomePageLayout';
 import Image from 'next/image';
 import React, { useState } from 'react';
+
+const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 const ProductDetails = ({ product }) => {
     // React state to manage component visibility
@@ -46,7 +49,7 @@ ProductDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-    const res = await fetch(`${process.env.BASE_URL}/products`, { next: { revalidate: 60 } });
+    const res = await fetch(`${process.env.BASE_URL}/products`);
     const products = await res.json();
 
     const paths = products?.data?.map((product) => ({
@@ -56,11 +59,12 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-    const res = await fetch(`${process.env.BASE_URL}/products/${params.productId}`, { next: { revalidate: 60 } });
+    const res = await fetch(`${process.env.BASE_URL}/products/${params.productId}`);
     const product = await res.json();
     return {
         props: {
             product
-        }
+        },
+        revalidate: 10
     }
 }

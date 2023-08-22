@@ -5,6 +5,11 @@ import ReactStars from "react-rating-stars-component";
 
 const ProductReview = ({ product }) => {
     const { reviews } = product?.data;
+    if (!reviews) {
+        return (
+            <h1>Loading...</h1>
+        )
+    }
     return (
         <div className="p-4">
             <div className="flex flex-col justify-start items-start w-full">
