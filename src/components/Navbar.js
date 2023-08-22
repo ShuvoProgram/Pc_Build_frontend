@@ -179,38 +179,6 @@ export default function Navbar() {
                                 </svg>
                             </Button>
                         </Space>
-                        {/* {visible && (
-                            <div className="md:hidden absolute top-0 right-0 bg-blue-600 w-64 h-screen z-50 p-4">
-                                <div className="flex justify-end">
-                                    <button
-                                        onClick={onClose}
-                                        className="flex items-center justify-center p-2 text-white focus:outline-none"
-                                    >
-                                        <svg
-                                            className="w-6 h-6"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="2"
-                                                d="M6 18L18 6M6 6l12 12"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <nav className="flex flex-col space-y-2">
-                                    {items.map(item => (
-                                        <div key={item.key} className="hover:text-white">
-                                            {item.label}
-                                        </div>
-                                    ))}
-                                </nav>
-                            </div>
-                        )} */}
                         <Drawer
                             title={`${size} Drawer`}
                             placement="right"
