@@ -21,13 +21,13 @@ export default function ProductCard({ product }) {
         <div className="p-2">
           <div className="flex flex-col top-4 right-4 space-y-2 absolute opacity-0 group-hover:opacity-100 transition duration-500">
             <Link href={`/product/${_id}`} className=' bg-white border-2 border-gray-200'>
-              <AiOutlineEye className='text-xl text-green-600 m-2' />
+              <AiOutlineEye className='text-xl text-blue-600 m-2' />
             </Link>
             <button className=' bg-white border-2 border-gray-200'>
-              <AiOutlinePlusCircle className='text-xl text-green-600 m-2' />
+              <AiOutlinePlusCircle className='text-xl text-blue-600 m-2' />
             </button>
             <button className='bg-white border-2 border-gray-200'>
-              <FiHeart className='text-xl text-green-600 m-2'></FiHeart>
+              <FiHeart className='text-xl text-blue-600 m-2'></FiHeart>
             </button>
           </div>
         </div>

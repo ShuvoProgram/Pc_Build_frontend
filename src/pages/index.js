@@ -36,7 +36,6 @@ export default function HomePage({ products }) {
               }
             </Row>
           </div>
-          <h3 className='bg-gray-600 text-yellow-400 p-2 text-center'>Categories</h3>
           <div className='flex justify-center items-center mx-10'>
             <FeaturedCategory />
           </div>
