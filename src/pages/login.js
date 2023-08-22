@@ -110,7 +110,7 @@ const LoginPage = () => {
                                     <Button
                                         onClick={() =>
                                             signIn("github", {
-                                                callbackUrl: `http://localhost:3000/`,
+                                                callbackUrl: process.env.BASE_URL,
                                             })
                                         }
                                         className="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none"
@@ -133,7 +133,7 @@ const LoginPage = () => {
                                     <Button
                                         onClick={() =>
                                             signIn("google", {
-                                                callbackUrl: `http://localhost:3000/`,
+                                                callbackUrl: process.env.BASE_URL,
                                             })
                                         }
 
