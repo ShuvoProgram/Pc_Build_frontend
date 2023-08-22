@@ -7,6 +7,7 @@ import ProductCard from "@/components/ProductCard";
 import HeroSection from "@/components/HeroSection";
 import auth from "@/firebase/firebase.auth.js";
 import { useAuthState } from "react-firebase-hooks/auth";
+import FeaturedCategory from "@/components/FeaturedCategory";
 
 export default function HomePage({ products }) {
   const [user] = useAuthState(auth);
@@ -35,10 +36,10 @@ export default function HomePage({ products }) {
               }
             </Row>
           </div>
-          {/* <h3 className='bg-gray-600 text-yellow-400 p-2 text-center'>Categories</h3>
-            <div className='flex justify-center items-center mx-10'>
-                <Categories />
-            </div> */}
+          <h3 className='bg-gray-600 text-yellow-400 p-2 text-center'>Categories</h3>
+          <div className='flex justify-center items-center mx-10'>
+            <FeaturedCategory />
+          </div>
         </div>
       </HomePageLayout>
     </>
