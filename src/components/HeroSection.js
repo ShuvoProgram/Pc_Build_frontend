@@ -19,7 +19,7 @@ const HeroSection = () => {
                         <div class="h-48 flex flex-wrap content-center justify-center">
 
                             <div>
-                                <Image alt='pc-hero' class="inline-block mt-24 md:mt-0 p-8 md:p-0" src="https://i.ibb.co/3spWD3S/c07064738.png" width={500} height={500} /></div>
+                                <Image alt='pc-hero' class="inline-block mt-24 md:mt-0 p-8 md:p-0" src="https://i.ibb.co/KX5FQQW/c07064738.png" width={500} height={500} /></div>
 
                         </div>
                     </div>
