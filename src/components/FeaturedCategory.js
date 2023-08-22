@@ -1,8 +1,7 @@
 import React from 'react';
-import { FiCpu } from "@react-icons/all-files/fi/FiCpu";
 import { BsMotherboard, BsMemory } from 'react-icons/bs';
 import { ImPowerCord } from 'react-icons/im';
-import { FiMonitor } from 'react-icons/fi';
+import { FiCpu, FiMonitor } from 'react-icons/fi';
 import { MdOutlineSdStorage } from 'react-icons/md';
 import Link from "next/link";
 
