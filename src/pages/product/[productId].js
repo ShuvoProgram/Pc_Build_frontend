@@ -7,8 +7,6 @@ import HomePageLayout from '@/layout/HomePageLayout';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
-const fetcher = (...args) => fetch(...args).then(res => res.json())
-
 const ProductDetails = ({ product }) => {
     // React state to manage component visibility
     const [component, setComponent] = useState(<ProductDescription product={product} />);
@@ -59,12 +57,13 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-    const res = await fetch(`${process.env.BASE_URL}/products/${params.productId}`);
+    const res = await fetch(`${process.env.BASE_URL}/products/${params.productId}`, {
+        cache: "no-store"
+    });
     const product = await res.json();
     return {
         props: {
             product
-        },
-        revalidate: 10
+        }
     }
 }
