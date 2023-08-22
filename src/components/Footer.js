@@ -12,9 +12,9 @@ export default function Footer() {
                 <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
                     <Link
                         href="/"
-                        className='font-bold text-2xl text-blue-500'
+                        className='mx-auto font-bold text-2xl text-blue-500'
                     >
-                        <Image src={Logo} width={150} height={150} alt='PC Builder' />
+                        <Image src={Logo} width={220} height={150} alt='PC Builder' />
                     </Link>
                     <p className="mt-2 text-sm text-white">PC Builder is an intuitive and user-friendly web application that empowers users to create their dream custom PCs with ease. </p>
                 </div>
@@ -97,13 +97,13 @@ export default function Footer() {
                     <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                         <h2 className="title-font font-medium text-blue-500 tracking-widest text-sm mb-3">CONTACT US</h2>
                         <nav className="list-none mb-10">
-                            <li className='flex mb-2'>
+                            <li className='flex mb-2 justify-center md:justify-start'>
                                 <BiPhoneCall className='text-blue-500 text-xl mr-1' /> +880162206572
                             </li>
-                            <li className='flex mb-2'>
+                            <li className='flex mb-2 justify-center md:justify-start'>
                                 <MdOutlineMailOutline className='text-blue-500 text-xl mr-1' /> khan.shuvo.2017@gmail.com
                             </li>
-                            <li className='flex'>
+                            <li className='flex justify-center md:justify-start'>
                                 <BiSolidLocationPlus className='text-blue-500 text-xl mr-1' /> Dhaka, Bangladesh
                             </li>
                         </nav>

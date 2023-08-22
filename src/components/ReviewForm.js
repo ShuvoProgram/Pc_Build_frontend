@@ -38,10 +38,10 @@ const ReviewForm = ({ productId }) => {
         }
     }
     return (
-        <div class="lg:w-[500px] w-full lg:m-4 bg-white">
+        <div className="lg:w-[500px] w-full lg:m-4 bg-white">
             <form onSubmit={handleSubmit}>
                 <div className='flex justify-between gap-3'>
-                    <div class="w-1/2">
+                    <div className="w-1/2">
                         <div className="flex items-center text-2xl">
                             {[1, 2, 3, 4, 5].map((value) => (
                                 <button
@@ -65,25 +65,25 @@ const ReviewForm = ({ productId }) => {
                             ))}
                         </div>
                     </div>
-                    <div class="w-1/2">
+                    <div className="w-1/2">
 
                     </div>
                 </div>
-                <div class=" relative mb-4">
-                    <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+                <div className=" relative mb-4">
+                    <label for="name" className="leading-7 text-sm text-gray-600">Name</label>
                     <input type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        id="name" name="name" class="w-full bg-white border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                        id="name" name="name" className="w-full bg-white border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                 </div>
-                <div class="relative mb-4">
-                    <label for="message" class="leading-7 text-sm text-gray-600">Review</label>
+                <div className="relative mb-4">
+                    <label for="message" className="leading-7 text-sm text-gray-600">Review</label>
                     <textarea
                         value={review}
                         onChange={(e) => setReview(e.target.value)}
-                        id="message" name="message" class="w-full bg-white border border-gray-300 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                        id="message" name="message" className="w-full bg-white border border-gray-300 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                 </div>
-                <button type="submit" class="w-full rounded-lg flex items-center justify-center bg-transparent hover:bg-blue-300 text-blue-300 hover:text-black border border-blue-300 hover:border-transparent py-2 px-6 focus:outline-none text-lg"><FiSend className='text-xl mr-2' />Post Review</button>
+                <button type="submit" className="w-full rounded-lg flex items-center justify-center bg-transparent hover:bg-blue-300 text-blue-300 hover:text-black border border-blue-300 hover:border-transparent py-2 px-6 focus:outline-none text-lg"><FiSend className='text-xl mr-2' />Post Review</button>
             </form>
         </div>
     );

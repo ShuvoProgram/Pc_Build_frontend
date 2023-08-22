@@ -11,7 +11,6 @@ import FeaturedCategory from "@/components/FeaturedCategory";
 
 export default function HomePage({ products }) {
   const [user] = useAuthState(auth);
-  console.log("From home", user);
   return (
     <>
       <Head>
@@ -26,7 +25,7 @@ export default function HomePage({ products }) {
         <HeroSection />
         <div className='my-10'>
           <div className='flex text-gray-700 p-2 justify-center text-center'>
-            <h1 className="w-1/4 text-2xl font-bold border-b-2 border-primary pb-3">Featured Products</h1>
+            <h1 className="w-full md:w-1/4 text-2xl font-bold border-b-2 border-primary pb-3">Featured Products</h1>
 
           </div>
           <div className='flex justify-center items-center mx-10'>
@@ -36,7 +35,7 @@ export default function HomePage({ products }) {
               }
             </Row>
           </div>
-          <div className='flex justify-center items-center mx-10'>
+          <div className='flex justify-center items-center md:mx-10'>
             <FeaturedCategory />
           </div>
         </div>

@@ -9,10 +9,10 @@ const CategoryName = ({ products }) => {
     const { category } = router.query;
     return (
         <ProductLayout>
-            <h1 className="text-5xl font-bold text-center my-10">
+            <h1 className="text-2xl md:text-5xl font-bold text-center my-5 md:my-10">
                 {category} Category
             </h1>
-            <div className="container px-10 py-7 mx-auto">
+            <div className="md:px-10 py-7 mx-auto">
                 <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5 items-center mt-8">
                     {products?.data?.length ? products.data.map((product) => (
                         <ProductCard

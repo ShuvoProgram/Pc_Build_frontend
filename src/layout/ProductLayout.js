@@ -60,7 +60,7 @@ const ProductLayout = ({ children }) => {
                 </Breadcrumb>
                 <Layout style={{ padding: '24px 0', background: colorBgContainer, }}>
 
-                    <Sider style={{ background: colorBgContainer }} width={200} >
+                    <Sider style={{ background: colorBgContainer }} width={200} className='hidden md:block'>
                         <Menu className='mb-5' mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['sub']} >
                             <Card hoverable className='p-0 m-0'>
                                 <div className="">

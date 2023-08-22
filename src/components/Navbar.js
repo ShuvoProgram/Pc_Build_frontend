@@ -13,15 +13,8 @@ export default function Navbar() {
     const { data: session } = useSession();
     const [user] = useAuthState(auth);
     const [authSignOut] = useSignOut(auth);
-    const [visible, setVisible] = useState(false);
     const [open, setOpen] = useState(false);
-    const [size, setSize] = useState();
     const showDefaultDrawer = () => {
-        setSize('default');
-        setOpen(true);
-    };
-    const showLargeDrawer = () => {
-        setSize('large');
         setOpen(true);
     };
     const onClose = () => {
@@ -91,39 +84,29 @@ export default function Navbar() {
                         <Link href="/" className="font-bold text-xl text-white hover:text-white">
                             <Image src={Logo} width={150} height={150} alt="PC Builder" />
                         </Link>
-                        <Dropdown
-                            className="md:hidden ml-4"
-                            menu={{
-                                items,
-                            }}
-                        >
-                            <a onClick={(e) => e.preventDefault()}>
-                                <Space className="hover:text-white">
-                                    Categories <AiFillCaretDown />
-                                </Space>
-                            </a>
-                        </Dropdown>
                     </div>
-                    <nav className="hidden md:flex md:ml-auto md:mr-4 py-1 pl-4 border-l border-white items-center">
-                        <Dropdown
-                            className="hidden md:block"
-                            menu={{
-                                items,
-                            }}
-                        >
-                            <a onClick={(e) => e.preventDefault()} className="hover:text-white">
-                                Categories <AiFillCaretDown />
-                            </a>
-                        </Dropdown>
-                    </nav>
-                    <div className="flex items-center">
-                        <Link
-                            href="/pc-build"
-                            className="inline-flex items-center text-white font-bold bg-gray-900 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 hover:text-white md:ml-4"
-                        >
-                            PC BUILDER
-                        </Link>
-                        <div className="items-center flex ml-4 md:mt-0 mt-2">
+                    <div className="hidden md:flex items-center">
+                        <div className='hidden md:block  '>
+                            <Dropdown
+                                className="ml-4"
+                                menu={{
+                                    items,
+                                }}
+                            >
+                                <a onClick={(e) => e.preventDefault()}>
+                                    <Space className="hover:text-white">
+                                        Categories <AiFillCaretDown />
+                                    </Space>
+                                </a>
+                            </Dropdown>
+                            <Link
+                                href="/pc-build"
+                                className="inline-flex items-center text-white font-bold bg-gray-900 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 hover:text-white md:ml-4"
+                            >
+                                PC BUILDER
+                            </Link>
+                        </div>
+                        <div className="items-center md:flex ml-4 md:mt-0 mt-2">
                             {session?.user ? (
                                 <Link href="/profile">
                                     <Avatar size="large" src={session.user.image} />
@@ -162,7 +145,7 @@ export default function Navbar() {
                     </div>
                     <div className="md:hidden">
                         <Space>
-                            <Button type="primary" onClick={showDefaultDrawer} className="flex items-center justify-center p-2 ml-2 text-white focus:outline-none">
+                            <Button type="primary" onClick={showDefaultDrawer}>
                                 <svg
                                     className="w-6 h-6"
                                     fill="none"
@@ -180,23 +163,67 @@ export default function Navbar() {
                             </Button>
                         </Space>
                         <Drawer
-                            title={`${size} Drawer`}
                             placement="right"
-                            size={size}
                             onClose={onClose}
                             open={open}
-                            extra={
-                                <Space>
-                                    <Button onClick={onClose}>Cancel</Button>
-                                    <Button type="primary" onClick={onClose}>
-                                        OK
-                                    </Button>
-                                </Space>
-                            }
                         >
-                            <p>Some contents...</p>
-                            <p>Some contents...</p>
-                            <p>Some contents...</p>
+                            <Dropdown
+                                className="ml-4"
+                                menu={{
+                                    items,
+                                }}
+                            >
+                                <a onClick={(e) => e.preventDefault()}>
+                                    <Space className="hover:text-white">
+                                        Categories <AiFillCaretDown />
+                                    </Space>
+                                </a>
+                            </Dropdown>
+
+                            <div className="flex ml-4 md:mt-0 mt-2">
+                                <Link
+                                    href="/pc-build"
+                                    className="inline-flex items-center text-white font-bold bg-gray-900 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 hover:text-white md:ml-4"
+                                >
+                                    PC BUILDER
+                                </Link>
+                            </div>
+                            <div className='flex mt-5'>
+                                {session?.user ? (
+                                    <Link href="/profile">
+                                        <Avatar size="large" src={session.user.image} />
+                                    </Link>
+                                ) : user?.email ? (
+                                    <Link href="/profile">
+                                        <Avatar size="large" src={user.photoURL} />
+                                    </Link>
+                                ) : (
+                                    <Avatar size="large" icon={<UserOutlined />} />
+                                )}
+                                <button className="flex flex-col ml-2 text-sm">
+                                    Account
+                                    {session?.user ? (
+                                        <span onClick={() => signOut()} className="text-xs">
+                                            Logout
+                                        </span>
+                                    ) : user?.email ? (
+                                        <button
+                                            onClick={async () => {
+                                                const success = await authSignOut();
+                                                if (success) {
+                                                    alert('You are sign out');
+                                                }
+                                            }}
+                                        >
+                                            Sign out
+                                        </button>
+                                    ) : (
+                                        <Link href="/login" className="text-xs">
+                                            Register/Login
+                                        </Link>
+                                    )}
+                                </button>
+                            </div>
                         </Drawer>
                     </div>
                 </div>

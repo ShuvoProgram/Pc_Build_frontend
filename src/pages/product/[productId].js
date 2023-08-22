@@ -21,8 +21,8 @@ const ProductDetails = ({ product }) => {
                         <Image width={500} height={500} className="w-[600px] object-cover object-center" src={product?.data?.image} alt="img" />
                         <ProductInfo product={product} />
                     </div>
-                    <div class="text-gray-700 body-font">
-                        <div class="container py-7 mx-auto">
+                    <div className="text-gray-700 body-font">
+                        <div className="container py-7 mx-auto">
                             <div className='flex font-bold border-b-2 border-primary'>
                                 <button onClick={() => getComponent(<ProductDescription product={product} />)} className='bg-green-600 text-white font-bold px-4 py-2 border-r border-gray-200'>Description</button>
                                 <button onClick={() => getComponent(<ProductReview product={product} />)} className='bg-green-600 text-white font-bold px-4 py-2 border-r border-gray-200'>Reviews</button>

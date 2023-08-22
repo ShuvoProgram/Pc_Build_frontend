@@ -5,7 +5,6 @@ import Image from "next/image";
 import { FiHeart } from "react-icons/fi";
 
 export default function ProductCard({ product }) {
-  console.log(product)
   const { _id, title, category, price, image, status } = product || {};
   return (
     <>
