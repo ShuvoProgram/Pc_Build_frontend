@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { AiFillCaretDown } from 'react-icons/ai';
-import { Dropdown, Space, Avatar } from 'antd';
+import { Dropdown, Space, Avatar, Button, Drawer } from 'antd';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Logo from '../assets/pcBuildLogo.jpg';
@@ -14,13 +14,18 @@ export default function Navbar() {
     const [user] = useAuthState(auth);
     const [authSignOut] = useSignOut(auth);
     const [visible, setVisible] = useState(false);
-
-    const showDrawer = () => {
-        setVisible(true);
+    const [open, setOpen] = useState(false);
+    const [size, setSize] = useState();
+    const showDefaultDrawer = () => {
+        setSize('default');
+        setOpen(true);
     };
-
+    const showLargeDrawer = () => {
+        setSize('large');
+        setOpen(true);
+    };
     const onClose = () => {
-        setVisible(false);
+        setOpen(false);
     };
 
     const items = [
@@ -156,26 +161,25 @@ export default function Navbar() {
                         </div>
                     </div>
                     <div className="md:hidden">
-                        <button
-                            onClick={showDrawer}
-                            className="flex items-center justify-center p-2 ml-2 text-white focus:outline-none"
-                        >
-                            <svg
-                                className="w-6 h-6"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M4 6h16M4 12h16m-7 6h7"
-                                ></path>
-                            </svg>
-                        </button>
-                        {visible && (
+                        <Space>
+                            <Button type="primary" onClick={showDefaultDrawer} className="flex items-center justify-center p-2 ml-2 text-white focus:outline-none">
+                                <svg
+                                    className="w-6 h-6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M4 6h16M4 12h16m-7 6h7"
+                                    ></path>
+                                </svg>
+                            </Button>
+                        </Space>
+                        {/* {visible && (
                             <div className="md:hidden absolute top-0 right-0 bg-blue-600 w-64 h-screen z-50 p-4">
                                 <div className="flex justify-end">
                                     <button
@@ -206,7 +210,26 @@ export default function Navbar() {
                                     ))}
                                 </nav>
                             </div>
-                        )}
+                        )} */}
+                        <Drawer
+                            title={`${size} Drawer`}
+                            placement="right"
+                            size={size}
+                            onClose={onClose}
+                            open={open}
+                            extra={
+                                <Space>
+                                    <Button onClick={onClose}>Cancel</Button>
+                                    <Button type="primary" onClick={onClose}>
+                                        OK
+                                    </Button>
+                                </Space>
+                            }
+                        >
+                            <p>Some contents...</p>
+                            <p>Some contents...</p>
+                            <p>Some contents...</p>
+                        </Drawer>
                     </div>
                 </div>
             </div>
