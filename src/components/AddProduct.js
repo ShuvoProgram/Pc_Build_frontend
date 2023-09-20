@@ -80,7 +80,7 @@ const AddProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://pc-build.onrender.com/api/v1/products/create`, {
+            const response = await fetch(`${process.env.BASE_URL}/products/create`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
